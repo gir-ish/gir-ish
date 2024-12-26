@@ -1,77 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Girish's GitHub Portfolio</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Meyawo Landing page | Free Bootstrap 4.3.x landing page</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Meyawo main styles -->
+	<link rel="stylesheet" href="assets/css/meyawo.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
+
+        /* more about this  hover blink */
+        .service-card {
+            transition: color 0.5s;
         }
-        h1, h2 {
-            color: #333;
+
+        .service-card:hover .blink {
+            animation: blinker 1s linear infinite;
+            color: red;
         }
-        .project {
-            margin-bottom: 20px;
-        }
-        .project-title {
-            font-size: 24px;
+
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }   
+
+        .blink {
+            font-size: 20px;
             font-weight: bold;
-            color: #0056b3;
-        }
-        .project-description {
-            margin-top: 5px;
-        }
-        .contact {
-            margin-top: 40px;
-        }
-        a {
-            color: #007bff;
             text-decoration: none;
+            color: inherit;
+            transition: color 0.5s;
         }
-        a:hover {
-            text-decoration: underline;
+
+
+
+
+        /* publication */
+        .pricing-wrapper {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-card-header h1 {
+            color: rgb(231, 150, 150);
+        }
+
+        .new-div {
+            display: none;
+            position: absolute;
+            font-family: Arial, sans-serif;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(252, 250, 250, 1);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .pricing-card:hover .new-div {
+            display: flex;
+        }
+
+        /* golf img size */
+        #golf-img {
+            width: 80px; 
+            height: auto; 
+        }
+        
+
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links .link {
+            margin: 0 10px; /* Adjust the margin as needed */
         }
     </style>
+    <script>
+        // moving to particular section         
+        function showPortfolioCard() {
+            document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+        }
+        function showContactCard() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // manupilate link data
+
+        function showComingSoon(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            event.target.textContent = 'Coming Soon';
+        }
+    </script>
 </head>
-<body>
-    <h1>Welcome to Girish's GitHub Portfolio</h1>
-    <p>Hi! I'm Girish, and this is a showcase of my private projects. To request access, please fill out the form linked below.</p>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">Girish</a>         
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">About</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">projects</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#testmonial">Testmonial</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#blog">Blog</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+                <!-- <li class="item ml-md-3">
+                    <a href="components.html" class="btn btn-primary">Components</a>
+                </li> -->
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                  <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>          
+    </nav>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- page header                 Hi! I AM Girish -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content container">
+            <h1 class="header-title">
+                <span class="up">HI!</span>
+                <span class="down">I am Girish</span>
+            </h1>
+            <p class="header-subtitle">RESSEARCER in SPEECH & AUDIO</p>            
 
-    <h2>📂 My Projects</h2>
+            <button class="btn btn-primary" onclick="showPortfolioCard()">Visit My Works</button>
+        </div>              
+    </header>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- about section               ABOUT ME-->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="assets/imgs/girish1.jpg" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="about-caption">
+                    <!-- <p class="section-subtitle"><b>Who Am I ?</b></p> -->
+                    <h2 class="section-title mb-3">About Me</h2>
+                    <p>
+                        I am Girish, a third-year B.Tech student specializing in AI and Machine Learning (Honors) at UPES, Dehradun. My passion lies in advanced research fields such as deepfake detection in speech and audio, speech recognition, natural language processing (NLP), and video and image analysis.
+                        <br><br>
+                        I have a strong foundation in speech emotion recognition (SER) and automatic speech recognition (ASR). My work focuses on developing and deploying neural networks and machine learning models to tackle complex problems, particularly in enhancing the detection of deepfake audio and video.
+                        <br><br>
+                        My research includes multi-modal data fusion, combining image and language features for emotion classification tasks. I strive to address data scarcity issues and improve feature extraction and learning efficiency. Through innovative research and collaboration, I aim to contribute significantly to the fields of AI and machine learning.                    </p>
+                    <!-- <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button> -->
+                    <button class="btn-rounded btn btn-outline-primary mt-4" onclick="window.open('https://drive.google.com/drive/folders/1Bn7mQKnnLxU5UUCgC0aRfZ2mIa31-xu5?usp=sharing', '_blank')">Download CV</button>
 
-    <div class="project">
-        <div class="project-title">1. Speaker Verification System</div>
-        <div class="project-description">
-            A system to verify speakers using advanced embeddings, x-vectors, and cosine similarity. Leveraging Reinforcement and Continual Learning for improvements.
+                </div>              
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- projects section             WHAT I  DO -->
+    <section class="section" id="service">
+        <div class="container text-center">
+            <p class="section-subtitle" style="font-size: 20px";><b>What I Do ?</b>
+                <br>
+                I am currently conducting research in deepfake detection and speech recognition. My work involves developing advanced neural networks and machine learning models to enhance the detection of deepfake audio and video, ensuring robust and accurate results. Additionally, I focus on improving automatic speech recognition (ASR) systems to achieve higher accuracy and efficiency.
+            </p>
+            <h6 class="section-title mb-6">RECENT PROJECTS</h6>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="assets/imgs/autism.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <!-- <P>MORE ABOUT THIS</P> -->
+                            <h6 class="title">NeuRO</h6>
+                            <p style="font-size: 20px; font-weight: bold;">
+                                <!-- <a href="javascript:void(0)" onclick="showPortfolioCard()" class="blink">MORE ABOUT THIS</a> -->
+                            </p> 
+
+                            <p class="subtitle" style="font-family: 'align-self: start;';">
+                                <a href="javascript:void(0)" onclick="showPortfolioCard()" class="blink">MORE ABOUT THIS</a>
+                                <br>
+                                Neurodegenerative disorder: Application for Code-Switched Autism Detection in Children.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="assets/imgs/golf.png" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon" id="golf-img">
+                            <br>
+                            <h6 class="title">GOLF PhaseDetection</h6>
+                            <p style="font-size: 20px; font-weight: bold;">
+                                <!-- <a href="javascript:void(0)" onclick="showPortfolioCard()" class="blink">MORE ABOUT THIS</a> -->
+                            </p>
+                            <p class="subtitle" style="font-family: 'align-self: start;';">
+                                <a href="javascript:void(0)" onclick="showPortfolioCard()" class="blink">MORE ABOUT THIS</a>
+                                <br>
+                                An app that detects and analyzes the phases of a golfer's swing, providing real-time feedback.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="assets/imgs/toolbox.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <h6 class="title">Placeat</h6>
+                            <p class="subtitle" style="font-family: 'align-self: start;';">COMING SOON!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="assets/imgs/analytics.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <h6 class="title">Iusto</h6>
+                            <p class="subtitle" style="font-family: 'align-self: start;' ;">COMING SOON!</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of row -->
         </div>
-    </div>
+    </section>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- portfolio section            WHAT I DID PROJECTS-->
+    <section class="section" id="portfolio">
+        <div class="container text-center">
+            <p class="section-subtitle">What I Did ?</p>
+            <h6 class="section-title mb-6">PROJECTS</h6>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <div class="row">
+                <!-- NEURO APPLICATION -->
+                <div class="col-md-4">
+                    <a href="https://huggingface.co/spaces/ggirishg/Autism-Detector" class="portfolio-card" target="_blank">
+                        <img src="assets/imgs/NEURO.jpg" class="portfolio-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>Web Application</h5>
+                                <p>This is the prototype model for Autism detection</p>
+                                <p class="font-weight-normal">You can use this Application on CLICK!</p>
+                            </span>                         
+                        </span>                     
+                    </a>
+                </div>
 
-    <div class="project">
-        <div class="project-title">2. Depression Detection Using Audio</div>
-        <div class="project-description">
-            Research project focused on detecting depression using audio recordings with multi-view feature aggregation.
+                <!-- GOLF APPLICATOIN -->
+                <div class="col-md-4">
+                    <a href="https://huggingface.co/spaces/ggirishg/phaseDetection" class="portfolio-card" target="_blank">
+                        <img class="portfolio-card-img" src="assets/imgs/golf_ui2.png" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>Golf Phase Detection</h5>
+                                <p class="font-weight-normal">You can use this Application on CLICK!</p>
+                            </span>                         
+                        </span>                         
+                    </a>
+                </div>
+                <!-- COMING SOON -->
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img class="portfolio-card-img" src="assets/imgs/coming-soon.png" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>COMING-SOON</h5>
+                                    <p class="font-weight-normal">?</p>
+                            </span>                         
+                        </span>                     
+                    </a>
+                </div>
+                <!-- COMING SOON -->
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img class="portfolio-card-img" src="assets/imgs/coming-soon.png" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>COMING-SOON</h5>
+                                <p class="font-weight-normal">?</p>
+                            </span>                         
+                        </span>                     
+                    </a>
+                </div>
+            </div>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
         </div>
-    </div>
+    </section> 
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!--  section                      publication-->
+    <section class="section" id="pricing">
+        <div class="container text-center">
+                <p class="section-subtitle"></p>
+                <h6 class="section-title mb-6">PUBLICATIONS</h6>
+                <!-- row -->
+            <div class="pricing-wrapper">
+                <!-- /////////////////////////////////////////////////////////////////////////// journal 24 A Code-Switched Autism Corpus -->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <h1>SPEECH</h1>
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">Modality-Order Matters!<br> A Novel Hierarchical Feature Fusion Method for CoSAm: A Code-
+                            Switched Autism Corpus</h6>
+                        <div class="pricing-card-list">
+                        </div>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <span>journal</span>
+                    </div>
+                    
+                    <div class="new-div">
+                        <p style="font-size: 20px;">The research introduces a novel hierarchical feature fusion method for detecting Autism Spectrum Disorder (ASD) in children through speech analysis. Utilizing a code-switched (English and Hindi) speech corpus named CoSAm, the method integrates acoustic, paralinguistic, and linguistic features using Transformer Encoders.
 
-    <div class="project">
-        <div class="project-title">3. Audio-Visual Question Answering</div>
-        <div class="project-description">
-            A hybrid AI system integrating audio and visual data for contextual question answering.
+                            Key findings:
+                            <br>
+                            Achieved 98.75% accuracy in ASD detection.
+                            <br>
+                            Provides insights into speech patterns of bilingual or multilingual children with ASD.</p><br>
+                            <!-- <a href="https://arxiv.org/abs/2406.03514" class="btn btn-primary mt-3 pricing-card-btn" target="_blank">Link</a> -->
+                            <a href="#" class="btn btn-primary mt-3 pricing-card-btn" onclick="showComingSoon(event)">Link</a>
+                    </div>
+                </div>
+                <!-- ///////////////////////////////////////////////////////////////////////////    NEURO INTERSPEECH 24 -->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <h1>SPEECH</h1>
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">NeuRO: An Application for Code-Switched Autism Detection in Children</h6>
+                        <div class="pricing-card-list">
+                        </div>
+                    </div><br><br><br><br><br>
+                    <div class="pricing-card-footer">
+                        <span>INTERSPEECH 24 Show & Tell Demonstrations</span>
+                    </div>
+                    
+                    <div class="new-div">
+                        <p style="font-size: 20px;">NeuRO detects Autism Spectrum Disorder (ASD) in children using code-switched speech. It employs advanced speech recognition and paralinguistics, utilizing Whisper and TRILLsson models. Machine learning models analyze these features for high detection accuracy. The user-friendly web interface supports easy audio uploads and early ASD intervention. Combining linguistic and paralinguistic features enhances detection.</p><br>
+                            <a href="https://arxiv.org/abs/2406.03514" class="btn btn-primary mt-3 pricing-card-btn" target="_blank">Link</a>
+                    </div>
+                </div>
+                <!-- /////////////////////////////////////////////////////////////////////////// journal 24 Multi-View feature Aggregation-->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <h1>SPEECH</h1>
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">Multi-View feature Aggregation for Depression Detection from Short Segments of Speech</h6>
+                        <div class="pricing-card-list">
+                        </div>
+                    </div><br><br><br>
+                    <div class="pricing-card-footer">
+                        <span>journal</span>
+                    </div>
+                    
+                    <div class="new-div">
+                        <p style="font-size: 20px;">The project introduces a method using Convolutional Neural Networks (CNN) to detect depression from brief speech
+                            segments. By combining multiple feature representations, such as XVECTOR, EMOTION, and TRILLSSON.The
+                            project demonstrates that feature aggregation significantly enhances depression detection accuracy across varying
+                            speech segment durations, underscoring the critical role of feature engineering in mental health diagnostics.</p><br>
+                            <!-- <a href="" class="btn btn-primary mt-3 pricing-card-btn" target="_blank">Link</a> -->
+                            <a href="#" class="btn btn-primary mt-3 pricing-card-btn" onclick="showComingSoon(event)">Link</a>
+                    </div>
+                </div>
+            </div><!-- end of pricing wrapper -->
+                <!-- next row -->
+            <div class="pricing-wrapper">
+                <!-- /////////////////////////////////////////////////////////////////////////// journal 24 Multi-View feature Aggregation-->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <h1>COMING SOON!</h1>
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title"></h6>
+                        <div class="pricing-card-list">
+                        </div>
+                    </div><br><br><br>
+                    <div class="pricing-card-footer">
+                        <span></span>
+                    </div>
+                    
+                    <div class="new-div">
+                        <p style="font-size: 20px;">COMING SOON!</p><br>
+                            <!-- <a href="" class="btn btn-primary mt-3 pricing-card-btn" target="_blank">Link</a> -->
+                            <!-- <a href="#" class="btn btn-primary mt-3 pricing-card-btn" onclick="showComingSoon(event)">Link</a> -->
+                    </div>
+                </div>
+            </div><!-- end of pricing wrapper -->   
+
+
+        </div> <!-- end of container -->
+    </section>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- section                       CONTACT ME -->
+    <section class="section-sm bg-primary">
+        <!-- container                 CONTACT ME -->
+        <div class="container text-center text-sm-left">
+            <!-- row -->
+            <div class="row align-items-center">
+                <div class="col-sm offset-md-1 mb-4 mb-md-0">
+                    <h6 class="title text-light">I am happy to collaborate with you</h6>
+                    <p class="m-0 text-light">Always Feel Free to Contact</p>
+                </div>
+                <div class="col-sm offset-sm-2 offset-md-3">
+                    <button class="btn btn-lg my-font btn-light rounded" onclick="showContactCard()">Contact Me</button>
+                    
+                </div>
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section> <!-- end of section -->
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- EXPERIENCE section                          INTERNSHIPS-->
+    <section class="section" id="testmonial">
+        <div class="container text-center">
+            <p class="section-subtitle">MY EXPERIENCE</p>
+            <h6 class="section-title mb-6">INTERNSHIPS</h6>
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="assets/imgs/iiid.jpg" class="testimonial-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">                           
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">I am working on speech projects, with a particular focus on emotion recognition, speech recognition, and deepfake detection. Additionally, I am involved in NLP projects and the development of large language models (LLMs). This involves developing innovative algorithms for enhanced recognition and processing, improving model accuracy and efficiency.</p>
+                            <br><br>
+                            <h6 class="testimonial-card-title">IIIT DELHI<br>Research Intern Fellow (Onsite)<span style="color: black; font-style: oblique; font-size: 15px;">Jun 2024-Present</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="assets/imgs/ulster.png" class="testimonial-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">                        
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">I was currently engaged in advancing the fields of emotion recognition and speech recognition, along with significant work in Natural Language Processing (NLP) and the development of large language models (LLMs). My efforts focus on creating innovative algorithms to enhance recognition and processing capabilities, thereby improving model accuracy and efficiency.</p>
+                            <br>
+                            <h6 class="testimonial-card-title">Ulster University, UK, London<br>Research Intern Fellow (Remote)<span style="color: black; font-style: oblique; font-size: 15px;">Nov 2023-May 2024</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="assets/imgs/suratec.png" class="testimonial-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">                        
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">I was currently engaged in advancing the field of computer vision. My efforts focus on creating innovative algorithms to enhance recognition and processing capabilities, thereby improving model accuracy and efficiency.</p>
+                            <h6 class="testimonial-card-title">Suratec Co.,Ltd Bangkok City, Thailand<br>Software Developer Intern (Remote)<span style="color: black; font-style: oblique; font-size: 15px;">Jun-Jul 2024</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end of container -->
+    </section> 
+    
+    
+   
+    <!-- <section class="section" id="blog">
+        
+        <div class="container text-center">
+            <p class="section-subtitle">Recent Posts?</p>
+            <h6 class="section-title mb-6">Blog</h6>
+        
+            <div class="blog-card">
+                <div class="blog-card-header">
+                    <img src="assets/imgs/img-1.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">Consectetur adipisicing elit</h6>
+
+                    <p class="blog-card-caption">
+                        <a href="#">By: Admin</a>
+                        <a href="#"><i class="ti-heart text-danger"></i> 234</a>
+                        <a href="#"><i class="ti-comment"></i> 123</a>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt qui sit velit delectus voluptates, repellat ipsum culpa id deleniti. Rerum debitis facilis accusantium neque numquam mollitia modi quasi distinctio.</p>
+
+                    <p><b>Necessitatibus nihil impedit! Ex nisi eveniet, dolor aliquid consequuntur repudiandae.</b></p>
+                    <p>Magnam in repellat enim harum omnis aperiam! Explicabo illo, commodi, dolor blanditiis cupiditate harum nisi vero accusamus laudantium voluptatibus dolores quae obcaecati.</p>
+
+                    <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+                </div>
+            </div>
+
+            
+            <div class="blog-card">
+                <div class="blog-card-header">
+                    <img src="assets/imgs/img-2.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">Explicabo illo</h6>
+
+                    <p class="blog-card-caption">
+                        <a href="#">By: Admin</a>
+                        <a href="#"><i class="ti-heart text-danger"></i> 456</a>
+                        <a href="#"><i class="ti-comment"></i> 264</a>
+                    </p>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit excepturi laborum enim, vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae? Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
+
+                    <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section> -->
+    
 
-    <div class="contact">
-        <h2>📞 Contact Me</h2>
-        <p>To request access to my repositories, please fill out this form:</p>
-        <p><a href="https://forms.google.com/your-form-link" target="_blank">Request Access via Google Form</a></p>
-        <p>Alternatively, you can reach me at:</p>
-        <ul>
-            <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
-            <li>LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">Your LinkedIn Profile</a></li>
-        </ul>
-    </div>
+    <!-- contact section                       CONTACT SECTION-->
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you communicate?</p>
+            <p class="section-subtitle">
+                I prefer to communicate with me via 
+                Linkden <a href="https://www.linkedin.com/in/girish-b794092a1" class="link" target="_blank"><i class="ti-linkedin"></i></a>
+                or MAIL!
+                <a href="mailto:girish.research.pr@gmail.com" class="link" target="_blank"><i class="ti-email"></i></a>
+                
+            </p>
+            <h6 class="section-title mb-5">Contact Me</h6>
+            <!-- contact form -->
+            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>                 
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="email" class="form-control" placeholder="Enter Email"requried>                 
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea name="comment" id="comment" rows="6"   class="form-control" placeholder="Write Something"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">                  
+                    </div>
+                </div>  
+            </form>
+        </div>
+    </section>
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">       
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="mailto:girish.research.pr@gmail.com" class="link" target="_blank"><i class="ti-email"></i></a>
+                <a href="https://www.linkedin.com/in/girish-b794092a1" class="link" target="_blank"><i class="ti-linkedin"></i></a>
+                <a href="https://github.com/gir-ish" class="link" target="_blank"><i class="ti-github"></i></a>
+                <a href="https://scholar.google.com/citations?authuser=3&user=4HIGa7AAAAAJ" class="link" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=okYCvWotC0uX&format=png&color=000000" alt="Google Scholar" style="width: 24px; height: 24px;">
+                </a>
+            </div>
+            
+        </footer>
+    </div> 
+    <!-- <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p> -->
+            
+	<!-- <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a> -->
+                <!-- <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a> -->
+                <!-- <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a> -->
+                
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="assets/js/meyawo.js"></script>
+
 </body>
 </html>
